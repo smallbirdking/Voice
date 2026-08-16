@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "voice-asr-lab"
+version = "0.1.0"
+description = "Isolated experiments for evaluating local ASR providers."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+voice-asr-lab = "voice_asr_lab.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+

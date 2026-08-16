@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0.0",
+  "directories": [
+    {
+      "id": "model_cache",
+      "path": "models/cache",
+      "git_policy": "ignored",
+      "retention": "reusable-local-cache",
+      "purpose": "Downloaded model weights and runtime payloads."
+    },
+    {
+      "id": "model_manifests",
+      "path": "models/manifests",
+      "git_policy": "tracked",
+      "retention": "retained-evidence",
+      "purpose": "Model identifiers, sources, sizes, versions, and content digests."
+    },
+    {
+      "id": "corpus_source",
+      "path": "corpus/source",
+      "git_policy": "tracked",
+      "retention": "versioned-input",
+      "purpose": "Original licensed audio used as immutable experiment input."
+    },
+    {
+      "id": "corpus_manifests",
+      "path": "corpus/manifests",
+      "git_policy": "tracked",
+      "retention": "versioned-input",
+      "purpose": "Versioned corpus manifests, references, labels, and licenses."
+    },
+    {
+      "id": "corpus_derived",
+      "path": "corpus/derived",
+      "git_policy": "ignored",
+      "retention": "reproducible-local-output",
+      "purpose": "Deterministically preprocessed audio rebuilt from source files."
+    },
+    {
+      "id": "temporary_results",
+      "path": "tmp",
+      "git_policy": "ignored",
+      "retention": "disposable",
+      "purpose": "Incomplete runs, scratch files, and intermediate results."
+    },
+    {
+      "id": "retained_reports",
+      "path": "reports",
+      "git_policy": "tracked",
+      "retention": "retained-evidence",
+      "purpose": "Reviewed machine-readable results and learning reports."
+    },
+    {
+      "id": "logs",
+      "path": "logs",
+      "git_policy": "ignored",
+      "retention": "disposable",
+      "purpose": "Verbose runtime and diagnostic logs."
+    }
+  ]
+}

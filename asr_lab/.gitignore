@@ -1,0 +1,19 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+
+# Downloaded model payloads are large local caches.  Keep only the directory
+# marker and versioned metadata under models/manifests/.
+/models/cache/*
+!/models/cache/.gitkeep
+
+# Derived audio can always be rebuilt from the versioned source corpus.
+/corpus/derived/*
+!/corpus/derived/.gitkeep
+
+# Scratch results and runtime logs are not experiment evidence.
+/tmp/*
+!/tmp/.gitkeep
+/logs/*
+!/logs/.gitkeep

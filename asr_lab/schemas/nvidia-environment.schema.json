@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://voice.local/schemas/nvidia-environment.schema.json",
+  "title": "Voice ASR Lab NVIDIA environment snapshot",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "collected_at",
+    "status",
+    "nvidia_smi",
+    "visibility",
+    "cuda",
+    "gpus",
+    "errors"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "collected_at": {"type": "string", "minLength": 1},
+    "status": {
+      "enum": ["available", "not-installed", "no-gpu", "error", "timeout"]
+    },
+    "nvidia_smi": {
+      "type": "object",
+      "required": ["executable", "return_code", "driver_supported_cuda_version"],
+      "additionalProperties": false,
+      "properties": {
+        "executable": {"type": ["string", "null"]},
+        "return_code": {"type": ["integer", "null"]},
+        "driver_supported_cuda_version": {"type": ["string", "null"]}
+      }
+    },
+    "visibility": {
+      "type": "object",
+      "required": ["nvidia_smi_visible", "cuda_visible_devices", "gpu_count"],
+      "additionalProperties": false,
+      "properties": {
+        "nvidia_smi_visible": {"type": "boolean"},
+        "cuda_visible_devices": {"type": ["string", "null"]},
+        "gpu_count": {"type": "integer", "minimum": 0}
+      }
+    },
+    "cuda": {
+      "type": "object",
+      "required": ["toolkit"],
+      "additionalProperties": false,
+      "properties": {
+        "toolkit": {
+          "type": "object",
+          "required": ["status", "executable", "version", "details"],
+          "additionalProperties": false,
+          "properties": {
+            "status": {"enum": ["available", "not-installed", "error", "timeout"]},
+            "executable": {"type": ["string", "null"]},
+            "version": {"type": ["string", "null"]},
+            "details": {"type": ["string", "null"]}
+          }
+        }
+      }
+    },
+    "gpus": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "index",
+          "uuid",
+          "name",
+          "driver_version",
+          "memory_total_mib",
+          "memory_free_mib"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "index": {"type": "integer", "minimum": 0},
+          "uuid": {"type": "string", "minLength": 1},
+          "name": {"type": "string", "minLength": 1},
+          "driver_version": {"type": "string", "minLength": 1},
+          "memory_total_mib": {"type": "integer", "minimum": 0},
+          "memory_free_mib": {"type": "integer", "minimum": 0}
+        }
+      }
+    },
+    "errors": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  }
+}
+

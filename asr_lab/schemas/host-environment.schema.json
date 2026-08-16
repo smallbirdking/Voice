@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://voice.local/schemas/host-environment.schema.json",
+  "title": "Voice ASR Lab host environment snapshot",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "collected_at",
+    "platform",
+    "wsl",
+    "cpu",
+    "memory",
+    "disk",
+    "python",
+    "errors"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "collected_at": {
+      "type": "string",
+      "minLength": 1
+    },
+    "platform": {
+      "type": "object",
+      "required": ["system", "release", "version", "machine", "architecture"],
+      "additionalProperties": false,
+      "properties": {
+        "system": {"type": "string"},
+        "release": {"type": "string"},
+        "version": {"type": "string"},
+        "machine": {"type": "string"},
+        "architecture": {"type": "string"}
+      }
+    },
+    "wsl": {
+      "type": "object",
+      "required": ["executable", "status", "wsl2_detected", "details"],
+      "additionalProperties": false,
+      "properties": {
+        "executable": {"type": ["string", "null"]},
+        "status": {
+          "enum": ["available", "not-installed", "not-applicable", "error", "timeout"]
+        },
+        "wsl2_detected": {"type": ["boolean", "null"]},
+        "details": {"type": ["string", "null"]}
+      }
+    },
+    "cpu": {
+      "type": "object",
+      "required": ["logical_cores", "processor", "identifier", "architecture"],
+      "additionalProperties": false,
+      "properties": {
+        "logical_cores": {"type": ["integer", "null"], "minimum": 1},
+        "processor": {"type": "string"},
+        "identifier": {"type": ["string", "null"]},
+        "architecture": {"type": ["string", "null"]}
+      }
+    },
+    "memory": {
+      "type": "object",
+      "required": ["total_bytes", "available_bytes", "probe"],
+      "additionalProperties": false,
+      "properties": {
+        "total_bytes": {"type": ["integer", "null"], "minimum": 0},
+        "available_bytes": {"type": ["integer", "null"], "minimum": 0},
+        "probe": {
+          "enum": ["windows-global-memory-status", "posix-sysconf", "unavailable"]
+        }
+      }
+    },
+    "disk": {
+      "type": "object",
+      "required": ["path", "total_bytes", "used_bytes", "free_bytes"],
+      "additionalProperties": false,
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "total_bytes": {"type": "integer", "minimum": 0},
+        "used_bytes": {"type": "integer", "minimum": 0},
+        "free_bytes": {"type": "integer", "minimum": 0}
+      }
+    },
+    "python": {
+      "type": "object",
+      "required": [
+        "version",
+        "implementation",
+        "executable",
+        "prefix",
+        "base_prefix",
+        "is_virtual_environment"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "version": {"type": "string", "minLength": 1},
+        "implementation": {"type": "string", "minLength": 1},
+        "executable": {"type": "string", "minLength": 1},
+        "prefix": {"type": "string", "minLength": 1},
+        "base_prefix": {"type": "string", "minLength": 1},
+        "is_virtual_environment": {"type": "boolean"}
+      }
+    },
+    "errors": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  }
+}
+
