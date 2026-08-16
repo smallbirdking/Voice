@@ -1,4 +1,4 @@
-"""Small JSON Schema subset used while the lab has no runtime dependencies."""
+"""Core JSON Schema subset used while the lab has no runtime dependencies."""
 
 from __future__ import annotations
 
@@ -63,9 +63,14 @@ def validate_json_schema(instance: Any, schema: Mapping[str, Any], path: str = "
             if name in properties:
                 errors.extend(validate_json_schema(value, properties[name], f"{path}.{name}"))
 
-    if isinstance(instance, list) and "items" in schema:
-        for index, value in enumerate(instance):
-            errors.extend(validate_json_schema(value, schema["items"], f"{path}[{index}]"))
+    if isinstance(instance, list):
+        minimum_items = schema.get("minItems")
+        if minimum_items is not None and len(instance) < minimum_items:
+            errors.append(f"{path}: array has fewer than {minimum_items} items")
+
+        if "items" in schema:
+            for index, value in enumerate(instance):
+                errors.extend(validate_json_schema(value, schema["items"], f"{path}[{index}]"))
 
     return errors
 

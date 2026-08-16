@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "source": "Tatoeba",
+  "retrieved_at": "2026-08-16",
+  "sentence_export": "https://downloads.tatoeba.org/exports/per_language/{lang}/{lang}_sentences.tsv.bz2",
+  "audio_metadata_export": "https://downloads.tatoeba.org/exports/sentences_with_audio.tar.bz2",
+  "audio_metadata_last_modified": "2026-08-15T06:27:10Z",
+  "sentence_text_license": {
+    "identifier": "CC BY 2.0 FR",
+    "uri": "https://creativecommons.org/licenses/by/2.0/fr/"
+  },
+  "decoder": {
+    "package": "imageio-ffmpeg",
+    "package_version": "0.6.0",
+    "package_wheel_sha256": "02fa47c83703c37df6bfe4896aab339013f62bf02c5ebf2dce6da56af04ffc0a",
+    "ffmpeg_version": "7.1-essentials_build-www.gyan.dev",
+    "command": "ffmpeg -nostdin -hide_banner -loglevel error -n -i <upstream.mp3> -map_metadata -1 -c:a pcm_s16le <source.wav>"
+  },
+  "selections": [
+    {
+      "sample_id": "zh-short-command-001",
+      "sentence_id": 13817883,
+      "audio_id": 1284512,
+      "text": "请举起你的左手。",
+      "audio_author": "zhoucantd",
+      "audio_license": "CC BY-NC 4.0",
+      "audio_license_uri": "https://creativecommons.org/licenses/by-nc/4.0/",
+      "sentence_uri": "https://tatoeba.org/en/sentences/show/13817883",
+      "download_uri": "https://tatoeba.org/audio/download/1284512",
+      "upstream_path": "source/upstream/tatoeba-audio-1284512.mp3",
+      "upstream_sha256": "1407652d343caa2b894fbea33053a620a6ff3d31fb9580d8398245aec732d15c",
+      "wav_path": "source/zh-short-command-001.wav",
+      "wav_sha256": "b11df38ee2beafaec7ba9203519e73d9944be8ffed0a890b1b935ffe3e0f1f63"
+    },
+    {
+      "sample_id": "zh-long-form-001",
+      "sentence_id": 13843227,
+      "audio_id": 1284524,
+      "text": "我认为如果所有人都学会了道本语他们就可以与全世界的人交流而无需学习英语或世界语。",
+      "audio_author": "zhoucantd",
+      "audio_license": "CC BY-NC 4.0",
+      "audio_license_uri": "https://creativecommons.org/licenses/by-nc/4.0/",
+      "sentence_uri": "https://tatoeba.org/en/sentences/show/13843227",
+      "download_uri": "https://tatoeba.org/audio/download/1284524",
+      "upstream_path": "source/upstream/tatoeba-audio-1284524.mp3",
+      "upstream_sha256": "4b3f7f5fccd8b8f950cdd7f85cf70bf00a04e675632d4c06034b6b1d7277f976",
+      "wav_path": "source/zh-long-form-001.wav",
+      "wav_sha256": "b6bebc9bd26b09738258167b1de27f6f9d4acc40c5a2ee794a11043b6fe825c6"
+    },
+    {
+      "sample_id": "en-general-speech-001",
+      "sentence_id": 1646,
+      "audio_id": 1112877,
+      "text": "My name is Jack.",
+      "audio_author": "Them",
+      "audio_license": "CC BY 4.0",
+      "audio_license_uri": "https://creativecommons.org/licenses/by/4.0/",
+      "sentence_uri": "https://tatoeba.org/en/sentences/show/1646",
+      "download_uri": "https://tatoeba.org/audio/download/1112877",
+      "upstream_path": "source/upstream/tatoeba-audio-1112877.mp3",
+      "upstream_sha256": "867b4d1ccc3b13c906fe6f836851ed9bab68541a5d50154d4f51381cfbfd99f4",
+      "wav_path": "source/en-general-speech-001.wav",
+      "wav_sha256": "a7e9c9bf35fc386d7ac5efce771d83823a514ad5f5c9b7d13345c7c0a9b56f16"
+    },
+    {
+      "sample_id": "en-short-command-001",
+      "sentence_id": 64007,
+      "audio_id": 1247321,
+      "text": "Please respond.",
+      "audio_author": "rul",
+      "audio_license": "CC BY 4.0",
+      "audio_license_uri": "https://creativecommons.org/licenses/by/4.0/",
+      "sentence_uri": "https://tatoeba.org/en/sentences/show/64007",
+      "download_uri": "https://tatoeba.org/audio/download/1247321",
+      "upstream_path": "source/upstream/tatoeba-audio-1247321.mp3",
+      "upstream_sha256": "b70522e0d7b8ba5bf1ada8aaf91486ef059d45c7524c7fea16c4ebe258e3611f",
+      "wav_path": "source/en-short-command-001.wav",
+      "wav_sha256": "87176bad0ac9553cd2c4ebeeffb6b5582ddb13eb7feaa19d1a9bd61a1497307d"
+    }
+  ]
+}

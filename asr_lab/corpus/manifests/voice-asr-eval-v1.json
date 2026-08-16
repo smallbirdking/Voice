@@ -1,0 +1,213 @@
+{
+  "schema_version": "1.0.0",
+  "corpus_id": "voice-asr-eval",
+  "corpus_version": "v1",
+  "corpus_fingerprint": "corpus-sha256-46f7d367fe4b7605cdf2a0d8e4a76643b24aa911c5b49e889d0eb4df3472620b",
+  "created_at": "2026-08-16T13:40:00Z",
+  "samples": [
+    {
+      "sample_id": "zh-short-command-001",
+      "audio": {
+        "path": "source/zh-short-command-001.wav",
+        "sha256": "b11df38ee2beafaec7ba9203519e73d9944be8ffed0a890b1b935ffe3e0f1f63",
+        "format": {"container": "wav", "codec": "pcm-s16le", "sample_rate_hz": 44100, "channels": 1, "sample_width_bits": 16},
+        "duration_ms": 1855
+      },
+      "language": "zh-CN",
+      "scenario": "short-command",
+      "reference": {
+        "text": "请举起你的左手。",
+        "normalization_version": "text-normalization-v1",
+        "normalized_text": "请举起你的左手",
+        "language_segments": [
+          {"language": "zh", "original": "请举起你的左手。", "normalized": "请举起你的左手", "start": 0, "end": 8}
+        ]
+      },
+      "source": {
+        "kind": "licensed-third-party",
+        "description": "Tatoeba sentence 13817883 audio by zhoucantd; decoded from retained MP3.",
+        "uri": "https://tatoeba.org/en/sentences/show/13817883",
+        "license": {
+          "identifier": "CC BY-NC 4.0 (audio); CC BY 2.0 FR (text)",
+          "name": "Creative Commons Attribution-NonCommercial 4.0 audio and Attribution 2.0 France text",
+          "uri": "https://creativecommons.org/licenses/by-nc/4.0/",
+          "redistribution": "restricted",
+          "evidence": "corpus/sources/tatoeba-v1-selection.json#zh-short-command-001"
+        }
+      }
+    },
+    {
+      "sample_id": "zh-long-form-001",
+      "audio": {
+        "path": "source/zh-long-form-001.wav",
+        "sha256": "b6bebc9bd26b09738258167b1de27f6f9d4acc40c5a2ee794a11043b6fe825c6",
+        "format": {"container": "wav", "codec": "pcm-s16le", "sample_rate_hz": 44100, "channels": 1, "sample_width_bits": 16},
+        "duration_ms": 6766
+      },
+      "language": "zh-CN",
+      "scenario": "long-form",
+      "reference": {
+        "text": "我认为如果所有人都学会了道本语他们就可以与全世界的人交流而无需学习英语或世界语。",
+        "normalization_version": "text-normalization-v1",
+        "normalized_text": "我认为如果所有人都学会了道本语他们就可以与全世界的人交流而无需学习英语或世界语",
+        "language_segments": [
+          {"language": "zh", "original": "我认为如果所有人都学会了道本语他们就可以与全世界的人交流而无需学习英语或世界语。", "normalized": "我认为如果所有人都学会了道本语他们就可以与全世界的人交流而无需学习英语或世界语", "start": 0, "end": 40}
+        ]
+      },
+      "source": {
+        "kind": "licensed-third-party",
+        "description": "Tatoeba sentence 13843227 audio by zhoucantd; decoded from retained MP3.",
+        "uri": "https://tatoeba.org/en/sentences/show/13843227",
+        "license": {
+          "identifier": "CC BY-NC 4.0 (audio); CC BY 2.0 FR (text)",
+          "name": "Creative Commons Attribution-NonCommercial 4.0 audio and Attribution 2.0 France text",
+          "uri": "https://creativecommons.org/licenses/by-nc/4.0/",
+          "redistribution": "restricted",
+          "evidence": "corpus/sources/tatoeba-v1-selection.json#zh-long-form-001"
+        }
+      }
+    },
+    {
+      "sample_id": "en-general-speech-001",
+      "audio": {
+        "path": "source/en-general-speech-001.wav",
+        "sha256": "a7e9c9bf35fc386d7ac5efce771d83823a514ad5f5c9b7d13345c7c0a9b56f16",
+        "format": {"container": "wav", "codec": "pcm-s16le", "sample_rate_hz": 44100, "channels": 1, "sample_width_bits": 16},
+        "duration_ms": 967
+      },
+      "language": "en-US",
+      "scenario": "general-speech",
+      "reference": {
+        "text": "My name is Jack.",
+        "normalization_version": "text-normalization-v1",
+        "normalized_text": "my name is jack",
+        "language_segments": [
+          {"language": "en", "original": "My name is Jack.", "normalized": "my name is jack", "start": 0, "end": 16}
+        ]
+      },
+      "source": {
+        "kind": "licensed-third-party",
+        "description": "Tatoeba sentence 1646 audio by Them; decoded from retained MP3.",
+        "uri": "https://tatoeba.org/en/sentences/show/1646",
+        "license": {
+          "identifier": "CC BY 4.0 (audio); CC BY 2.0 FR (text)",
+          "name": "Creative Commons Attribution 4.0 audio and Attribution 2.0 France text",
+          "uri": "https://creativecommons.org/licenses/by/4.0/",
+          "redistribution": "allowed",
+          "evidence": "corpus/sources/tatoeba-v1-selection.json#en-general-speech-001"
+        }
+      }
+    },
+    {
+      "sample_id": "en-short-command-001",
+      "audio": {
+        "path": "source/en-short-command-001.wav",
+        "sha256": "87176bad0ac9553cd2c4ebeeffb6b5582ddb13eb7feaa19d1a9bd61a1497307d",
+        "format": {"container": "wav", "codec": "pcm-s16le", "sample_rate_hz": 44100, "channels": 1, "sample_width_bits": 16},
+        "duration_ms": 1802
+      },
+      "language": "en-US",
+      "scenario": "short-command",
+      "reference": {
+        "text": "Please respond.",
+        "normalization_version": "text-normalization-v1",
+        "normalized_text": "please respond",
+        "language_segments": [
+          {"language": "en", "original": "Please respond.", "normalized": "please respond", "start": 0, "end": 15}
+        ]
+      },
+      "source": {
+        "kind": "licensed-third-party",
+        "description": "Tatoeba sentence 64007 audio by rul; decoded from retained MP3.",
+        "uri": "https://tatoeba.org/en/sentences/show/64007",
+        "license": {
+          "identifier": "CC BY 4.0 (audio); CC BY 2.0 FR (text)",
+          "name": "Creative Commons Attribution 4.0 audio and Attribution 2.0 France text",
+          "uri": "https://creativecommons.org/licenses/by/4.0/",
+          "redistribution": "allowed",
+          "evidence": "corpus/sources/tatoeba-v1-selection.json#en-short-command-001"
+        }
+      }
+    },
+    {
+      "sample_id": "zh-en-mixed-001",
+      "audio": {
+        "path": "source/zh-en-mixed-001.wav",
+        "sha256": "73534c0ea62086dccb724aa98917400067d141f8234ba7812de49a39c74929ee",
+        "format": {"container": "wav", "codec": "pcm-s16le", "sample_rate_hz": 44100, "channels": 1, "sample_width_bits": 16},
+        "duration_ms": 3907
+      },
+      "language": "zh-en",
+      "scenario": "general-speech",
+      "reference": {
+        "text": "请举起你的左手。 Please respond.",
+        "normalization_version": "text-normalization-v1",
+        "normalized_text": "请举起你的左手 please respond",
+        "language_segments": [
+          {"language": "zh", "original": "请举起你的左手。 ", "normalized": "请举起你的左手", "start": 0, "end": 9},
+          {"language": "en", "original": "Please respond.", "normalized": "please respond", "start": 9, "end": 24}
+        ]
+      },
+      "source": {
+        "kind": "licensed-third-party",
+        "description": "Local composite of Tatoeba audio 1284512 by zhoucantd and 1247321 by rul with a 250 ms silence gap.",
+        "uri": null,
+        "license": {
+          "identifier": "CC BY-NC 4.0 + CC BY 4.0 (audio); CC BY 2.0 FR (texts)",
+          "name": "Combined Creative Commons attribution licenses; noncommercial restriction applies",
+          "uri": "https://creativecommons.org/licenses/by-nc/4.0/",
+          "redistribution": "restricted",
+          "evidence": "corpus/SOURCES.md#项目生成资产"
+        }
+      }
+    },
+    {
+      "sample_id": "silence-001",
+      "audio": {
+        "path": "source/silence-001.wav",
+        "sha256": "24d598d6c0d8b67abc2ce3685b44af32e9fa363cd5968d9297a64d840e386cf3",
+        "format": {"container": "wav", "codec": "pcm-s16le", "sample_rate_hz": 44100, "channels": 2, "sample_width_bits": 16},
+        "duration_ms": 2000
+      },
+      "language": "none",
+      "scenario": "silence",
+      "reference": {"text": null, "normalization_version": null, "normalized_text": null, "language_segments": []},
+      "source": {
+        "kind": "generated",
+        "description": "Deterministic all-zero PCM16 fixture generated by voice_asr_lab.corpus_assets.",
+        "uri": null,
+        "license": {
+          "identifier": "CC0-1.0",
+          "name": "Creative Commons Zero v1.0 Universal",
+          "uri": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "redistribution": "allowed",
+          "evidence": "corpus/SOURCES.md#项目生成资产"
+        }
+      }
+    },
+    {
+      "sample_id": "noise-001",
+      "audio": {
+        "path": "source/noise-001.wav",
+        "sha256": "cfeff762f60b6bb04e0b79784c6f4eb02a31d3bb085c377f28bdee8612424719",
+        "format": {"container": "wav", "codec": "pcm-s16le", "sample_rate_hz": 44100, "channels": 2, "sample_width_bits": 16},
+        "duration_ms": 3000
+      },
+      "language": "none",
+      "scenario": "noise-only",
+      "reference": {"text": null, "normalization_version": null, "normalized_text": null, "language_segments": []},
+      "source": {
+        "kind": "generated",
+        "description": "Deterministic bounded xorshift32 PCM16 noise generated with seed 0x564F4943.",
+        "uri": null,
+        "license": {
+          "identifier": "CC0-1.0",
+          "name": "Creative Commons Zero v1.0 Universal",
+          "uri": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "redistribution": "allowed",
+          "evidence": "corpus/SOURCES.md#项目生成资产"
+        }
+      }
+    }
+  ]
+}

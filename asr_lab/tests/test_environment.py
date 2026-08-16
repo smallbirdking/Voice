@@ -11,7 +11,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 from voice_asr_lab.cli import main
-from voice_asr_lab.environment import (
+from voice_asr_lab.system.host import (
     _decode_command_output,
     _probe_wsl,
     collect_host_snapshot,
@@ -41,8 +41,8 @@ class HostEnvironmentTests(unittest.TestCase):
 
     def test_wsl_probe_is_explicit_when_executable_is_missing(self) -> None:
         with (
-            patch("voice_asr_lab.environment.platform.system", return_value="Windows"),
-            patch("voice_asr_lab.environment.shutil.which", return_value=None),
+            patch("voice_asr_lab.system.host.platform.system", return_value="Windows"),
+            patch("voice_asr_lab.system.host.shutil.which", return_value=None),
         ):
             result = _probe_wsl()
 

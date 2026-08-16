@@ -6,7 +6,7 @@
 - `status`: `complete`
 - `recorded_at`: `2026-08-16`
 - `environment`: `environment baseline schema 1.0.0；env-sha256-7699e9ce...dbb81`
-- `evidence`: `asr_lab/reports/baselines/environment-baseline-v1.json`、`asr_lab/reports/baselines/environment-baseline-v1.md`、`asr_lab/src/voice_asr_lab/baseline.py`、`asr_lab/tests/test_baseline.py`
+- `evidence`: `asr_lab/reports/baselines/environment-baseline-v1.json`、`asr_lab/reports/baselines/environment-baseline-v1.md`、`asr_lab/src/voice_asr_lab/system/baseline.py`、`asr_lab/tests/test_baseline.py`
 
 ## 目标
 
@@ -31,7 +31,7 @@ python -m voice_asr_lab capture-baseline
 校验已保存 JSON：
 
 ```powershell
-python -c "import json; from pathlib import Path; from voice_asr_lab.baseline import validate_environment_baseline; p=Path('../reports/baselines/environment-baseline-v1.json'); print(validate_environment_baseline(json.loads(p.read_text(encoding='utf-8'))))"
+python -c "import json; from pathlib import Path; from voice_asr_lab.system.baseline import validate_environment_baseline; p=Path('../reports/baselines/environment-baseline-v1.json'); print(validate_environment_baseline(json.loads(p.read_text(encoding='utf-8'))))"
 ```
 
 运行专项和完整测试：

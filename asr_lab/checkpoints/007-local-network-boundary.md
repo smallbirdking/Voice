@@ -6,7 +6,7 @@
 - `status`: `complete`
 - `recorded_at`: `2026-08-16`
 - `environment`: `local-asr-no-cloud-audio policy 1.0.0；Python socket guard`
-- `evidence`: `asr_lab/network-policy.json`、`asr_lab/NETWORK_POLICY.md`、`asr_lab/src/voice_asr_lab/offline_boundary.py`、`asr_lab/tests/test_offline_boundary.py`
+- `evidence`: `asr_lab/network-policy.json`、`asr_lab/NETWORK_POLICY.md`、`asr_lab/src/voice_asr_lab/system/offline_boundary.py`、`asr_lab/tests/test_offline_boundary.py`
 
 ## 目标
 

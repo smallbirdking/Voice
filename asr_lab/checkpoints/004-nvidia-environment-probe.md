@@ -6,7 +6,7 @@
 - `status`: `complete`
 - `recorded_at`: `2026-08-16`
 - `environment`: `NVIDIA GeForce RTX 5060 Ti；driver 596.36；driver-supported CUDA 13.2`
-- `evidence`: `asr_lab/schemas/nvidia-environment.schema.json`、`asr_lab/src/voice_asr_lab/nvidia.py`、`asr_lab/tests/test_nvidia.py`
+- `evidence`: `asr_lab/schemas/nvidia-environment.schema.json`、`asr_lab/src/voice_asr_lab/system/nvidia.py`、`asr_lab/tests/test_nvidia.py`
 
 ## 目标
 

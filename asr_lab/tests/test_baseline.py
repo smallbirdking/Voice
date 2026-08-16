@@ -11,7 +11,7 @@ from contextlib import redirect_stderr, redirect_stdout
 from datetime import datetime, timezone
 from pathlib import Path
 
-from voice_asr_lab.baseline import (
+from voice_asr_lab.system.baseline import (
     collect_environment_baseline,
     validate_environment_baseline,
     write_environment_baseline,

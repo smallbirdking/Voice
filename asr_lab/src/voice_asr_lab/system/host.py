@@ -1,4 +1,4 @@
-"""Host environment probes for reproducible local ASR experiments."""
+"""Host system probes for reproducible local ASR experiments."""
 
 from __future__ import annotations
 
@@ -14,11 +14,11 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from voice_asr_lab.schema_validation import load_schema, validate_json_schema
+from voice_asr_lab.core.schema_validation import load_schema, validate_json_schema
 
 
 HOST_ENVIRONMENT_SCHEMA_VERSION = "1.0.0"
-LAB_ROOT = Path(__file__).resolve().parents[2]
+LAB_ROOT = Path(__file__).resolve().parents[3]
 HOST_ENVIRONMENT_SCHEMA_PATH = LAB_ROOT / "schemas" / "host-environment.schema.json"
 
 
@@ -213,4 +213,3 @@ def _decode_command_output(raw: bytes) -> str:
             continue
 
     return raw.decode("utf-8", errors="replace").replace("\x00", "").strip()
-

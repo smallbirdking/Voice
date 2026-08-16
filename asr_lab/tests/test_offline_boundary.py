@@ -12,7 +12,7 @@ from pathlib import Path
 from unittest.mock import patch
 
 from voice_asr_lab.cli import main
-from voice_asr_lab.offline_boundary import (
+from voice_asr_lab.system.offline_boundary import (
     DEFAULT_MANIFEST_PATH,
     NETWORK_POLICY_PATH,
     ExternalNetworkBlocked,

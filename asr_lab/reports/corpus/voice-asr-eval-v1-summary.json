@@ -1,0 +1,482 @@
+{
+  "report_schema_version": "1.0.0",
+  "status": "passed",
+  "corpus": {
+    "corpus_id": "voice-asr-eval",
+    "corpus_version": "v1",
+    "corpus_fingerprint": "corpus-sha256-46f7d367fe4b7605cdf2a0d8e4a76643b24aa911c5b49e889d0eb4df3472620b",
+    "manifest_created_at": "2026-08-16T13:40:00Z",
+    "sample_count": 7,
+    "total_duration_ms": 20297
+  },
+  "validation": {
+    "manifest": {
+      "status": "passed",
+      "errors": []
+    },
+    "source_audio": {
+      "status": "passed",
+      "passed_samples": 7,
+      "failed_samples": 0
+    },
+    "derived_audio": {
+      "status": "passed",
+      "algorithm": "pcm16-mono-linear-v1",
+      "required_format": {
+        "container": "wav",
+        "codec": "pcm-s16le",
+        "sample_rate_hz": 16000,
+        "channels": 1,
+        "sample_width_bits": 16
+      },
+      "passed_samples": 7,
+      "failed_samples": 0
+    }
+  },
+  "coverage": {
+    "complete": true,
+    "required": {
+      "chinese": true,
+      "english": true,
+      "mixed_chinese_english": true,
+      "silence": true,
+      "noise": true,
+      "long_form": true,
+      "short_command": true
+    },
+    "language_counts": {
+      "en-US": 2,
+      "none": 2,
+      "zh-CN": 2,
+      "zh-en": 1
+    },
+    "scenario_counts": {
+      "general-speech": 2,
+      "long-form": 1,
+      "noise-only": 1,
+      "short-command": 2,
+      "silence": 1
+    }
+  },
+  "normalization": {
+    "versions": [
+      "text-normalization-v1"
+    ]
+  },
+  "licenses": {
+    "restricted_sample_count": 3,
+    "restricted_sample_ids": [
+      "zh-short-command-001",
+      "zh-long-form-001",
+      "zh-en-mixed-001"
+    ],
+    "commercial_use_ready": false
+  },
+  "samples": [
+    {
+      "sample_id": "zh-short-command-001",
+      "language": "zh-CN",
+      "scenario": "short-command",
+      "reference": {
+        "text": "请举起你的左手。",
+        "normalized_text": "请举起你的左手",
+        "normalization_version": "text-normalization-v1",
+        "language_segments": [
+          {
+            "language": "zh",
+            "original": "请举起你的左手。",
+            "normalized": "请举起你的左手",
+            "start": 0,
+            "end": 8
+          }
+        ]
+      },
+      "license": {
+        "identifier": "CC BY-NC 4.0 (audio); CC BY 2.0 FR (text)",
+        "redistribution": "restricted",
+        "evidence": "corpus/sources/tatoeba-v1-selection.json#zh-short-command-001"
+      },
+      "source_audio": {
+        "path": "source/zh-short-command-001.wav",
+        "status": "passed",
+        "facts": {
+          "sha256": "b11df38ee2beafaec7ba9203519e73d9944be8ffed0a890b1b935ffe3e0f1f63",
+          "format": {
+            "container": "wav",
+            "codec": "pcm-s16le",
+            "sample_rate_hz": 44100,
+            "channels": 1,
+            "sample_width_bits": 16
+          },
+          "frame_count": 81792,
+          "duration_ms": 1855
+        },
+        "errors": []
+      },
+      "derived_audio": {
+        "path": "derived/zh-short-command-001.wav",
+        "status": "passed",
+        "algorithm": "pcm16-mono-linear-v1",
+        "facts": {
+          "sha256": "3f5ebd192bf6ced2b3e6d121e2b5012130c7d70eeaf36180232ed307f524f95c",
+          "format": {
+            "container": "wav",
+            "codec": "pcm-s16le",
+            "sample_rate_hz": 16000,
+            "channels": 1,
+            "sample_width_bits": 16
+          },
+          "frame_count": 29675,
+          "duration_ms": 1855
+        },
+        "errors": []
+      }
+    },
+    {
+      "sample_id": "zh-long-form-001",
+      "language": "zh-CN",
+      "scenario": "long-form",
+      "reference": {
+        "text": "我认为如果所有人都学会了道本语他们就可以与全世界的人交流而无需学习英语或世界语。",
+        "normalized_text": "我认为如果所有人都学会了道本语他们就可以与全世界的人交流而无需学习英语或世界语",
+        "normalization_version": "text-normalization-v1",
+        "language_segments": [
+          {
+            "language": "zh",
+            "original": "我认为如果所有人都学会了道本语他们就可以与全世界的人交流而无需学习英语或世界语。",
+            "normalized": "我认为如果所有人都学会了道本语他们就可以与全世界的人交流而无需学习英语或世界语",
+            "start": 0,
+            "end": 40
+          }
+        ]
+      },
+      "license": {
+        "identifier": "CC BY-NC 4.0 (audio); CC BY 2.0 FR (text)",
+        "redistribution": "restricted",
+        "evidence": "corpus/sources/tatoeba-v1-selection.json#zh-long-form-001"
+      },
+      "source_audio": {
+        "path": "source/zh-long-form-001.wav",
+        "status": "passed",
+        "facts": {
+          "sha256": "b6bebc9bd26b09738258167b1de27f6f9d4acc40c5a2ee794a11043b6fe825c6",
+          "format": {
+            "container": "wav",
+            "codec": "pcm-s16le",
+            "sample_rate_hz": 44100,
+            "channels": 1,
+            "sample_width_bits": 16
+          },
+          "frame_count": 298368,
+          "duration_ms": 6766
+        },
+        "errors": []
+      },
+      "derived_audio": {
+        "path": "derived/zh-long-form-001.wav",
+        "status": "passed",
+        "algorithm": "pcm16-mono-linear-v1",
+        "facts": {
+          "sha256": "eca85ebbbae9559af2867395b78a9e781b9f22702b3620db641bbec41bedf8a6",
+          "format": {
+            "container": "wav",
+            "codec": "pcm-s16le",
+            "sample_rate_hz": 16000,
+            "channels": 1,
+            "sample_width_bits": 16
+          },
+          "frame_count": 108251,
+          "duration_ms": 6766
+        },
+        "errors": []
+      }
+    },
+    {
+      "sample_id": "en-general-speech-001",
+      "language": "en-US",
+      "scenario": "general-speech",
+      "reference": {
+        "text": "My name is Jack.",
+        "normalized_text": "my name is jack",
+        "normalization_version": "text-normalization-v1",
+        "language_segments": [
+          {
+            "language": "en",
+            "original": "My name is Jack.",
+            "normalized": "my name is jack",
+            "start": 0,
+            "end": 16
+          }
+        ]
+      },
+      "license": {
+        "identifier": "CC BY 4.0 (audio); CC BY 2.0 FR (text)",
+        "redistribution": "allowed",
+        "evidence": "corpus/sources/tatoeba-v1-selection.json#en-general-speech-001"
+      },
+      "source_audio": {
+        "path": "source/en-general-speech-001.wav",
+        "status": "passed",
+        "facts": {
+          "sha256": "a7e9c9bf35fc386d7ac5efce771d83823a514ad5f5c9b7d13345c7c0a9b56f16",
+          "format": {
+            "container": "wav",
+            "codec": "pcm-s16le",
+            "sample_rate_hz": 44100,
+            "channels": 1,
+            "sample_width_bits": 16
+          },
+          "frame_count": 42624,
+          "duration_ms": 967
+        },
+        "errors": []
+      },
+      "derived_audio": {
+        "path": "derived/en-general-speech-001.wav",
+        "status": "passed",
+        "algorithm": "pcm16-mono-linear-v1",
+        "facts": {
+          "sha256": "6c1274c9e6d0a15f4c5887762d01f0662bbd0e3e1a8596ef32e8f70ec420bb44",
+          "format": {
+            "container": "wav",
+            "codec": "pcm-s16le",
+            "sample_rate_hz": 16000,
+            "channels": 1,
+            "sample_width_bits": 16
+          },
+          "frame_count": 15464,
+          "duration_ms": 967
+        },
+        "errors": []
+      }
+    },
+    {
+      "sample_id": "en-short-command-001",
+      "language": "en-US",
+      "scenario": "short-command",
+      "reference": {
+        "text": "Please respond.",
+        "normalized_text": "please respond",
+        "normalization_version": "text-normalization-v1",
+        "language_segments": [
+          {
+            "language": "en",
+            "original": "Please respond.",
+            "normalized": "please respond",
+            "start": 0,
+            "end": 15
+          }
+        ]
+      },
+      "license": {
+        "identifier": "CC BY 4.0 (audio); CC BY 2.0 FR (text)",
+        "redistribution": "allowed",
+        "evidence": "corpus/sources/tatoeba-v1-selection.json#en-short-command-001"
+      },
+      "source_audio": {
+        "path": "source/en-short-command-001.wav",
+        "status": "passed",
+        "facts": {
+          "sha256": "87176bad0ac9553cd2c4ebeeffb6b5582ddb13eb7feaa19d1a9bd61a1497307d",
+          "format": {
+            "container": "wav",
+            "codec": "pcm-s16le",
+            "sample_rate_hz": 44100,
+            "channels": 1,
+            "sample_width_bits": 16
+          },
+          "frame_count": 79488,
+          "duration_ms": 1802
+        },
+        "errors": []
+      },
+      "derived_audio": {
+        "path": "derived/en-short-command-001.wav",
+        "status": "passed",
+        "algorithm": "pcm16-mono-linear-v1",
+        "facts": {
+          "sha256": "aeb550c5124468ae74a020b0e90f13d1703c196a5326d64c6ce20560117a5c0f",
+          "format": {
+            "container": "wav",
+            "codec": "pcm-s16le",
+            "sample_rate_hz": 16000,
+            "channels": 1,
+            "sample_width_bits": 16
+          },
+          "frame_count": 28839,
+          "duration_ms": 1802
+        },
+        "errors": []
+      }
+    },
+    {
+      "sample_id": "zh-en-mixed-001",
+      "language": "zh-en",
+      "scenario": "general-speech",
+      "reference": {
+        "text": "请举起你的左手。 Please respond.",
+        "normalized_text": "请举起你的左手 please respond",
+        "normalization_version": "text-normalization-v1",
+        "language_segments": [
+          {
+            "language": "zh",
+            "original": "请举起你的左手。 ",
+            "normalized": "请举起你的左手",
+            "start": 0,
+            "end": 9
+          },
+          {
+            "language": "en",
+            "original": "Please respond.",
+            "normalized": "please respond",
+            "start": 9,
+            "end": 24
+          }
+        ]
+      },
+      "license": {
+        "identifier": "CC BY-NC 4.0 + CC BY 4.0 (audio); CC BY 2.0 FR (texts)",
+        "redistribution": "restricted",
+        "evidence": "corpus/SOURCES.md#项目生成资产"
+      },
+      "source_audio": {
+        "path": "source/zh-en-mixed-001.wav",
+        "status": "passed",
+        "facts": {
+          "sha256": "73534c0ea62086dccb724aa98917400067d141f8234ba7812de49a39c74929ee",
+          "format": {
+            "container": "wav",
+            "codec": "pcm-s16le",
+            "sample_rate_hz": 44100,
+            "channels": 1,
+            "sample_width_bits": 16
+          },
+          "frame_count": 172305,
+          "duration_ms": 3907
+        },
+        "errors": []
+      },
+      "derived_audio": {
+        "path": "derived/zh-en-mixed-001.wav",
+        "status": "passed",
+        "algorithm": "pcm16-mono-linear-v1",
+        "facts": {
+          "sha256": "de6e0bbb8dab733076af77263c3f691b14362162fdaebdc429432a9d0bca2f5d",
+          "format": {
+            "container": "wav",
+            "codec": "pcm-s16le",
+            "sample_rate_hz": 16000,
+            "channels": 1,
+            "sample_width_bits": 16
+          },
+          "frame_count": 62514,
+          "duration_ms": 3907
+        },
+        "errors": []
+      }
+    },
+    {
+      "sample_id": "silence-001",
+      "language": "none",
+      "scenario": "silence",
+      "reference": {
+        "text": null,
+        "normalized_text": null,
+        "normalization_version": null,
+        "language_segments": []
+      },
+      "license": {
+        "identifier": "CC0-1.0",
+        "redistribution": "allowed",
+        "evidence": "corpus/SOURCES.md#项目生成资产"
+      },
+      "source_audio": {
+        "path": "source/silence-001.wav",
+        "status": "passed",
+        "facts": {
+          "sha256": "24d598d6c0d8b67abc2ce3685b44af32e9fa363cd5968d9297a64d840e386cf3",
+          "format": {
+            "container": "wav",
+            "codec": "pcm-s16le",
+            "sample_rate_hz": 44100,
+            "channels": 2,
+            "sample_width_bits": 16
+          },
+          "frame_count": 88200,
+          "duration_ms": 2000
+        },
+        "errors": []
+      },
+      "derived_audio": {
+        "path": "derived/silence-001.wav",
+        "status": "passed",
+        "algorithm": "pcm16-mono-linear-v1",
+        "facts": {
+          "sha256": "20eaebffe1816e0ffa6f7f854f5ef4ea80d5349faaf0ce1fec1b713e7fde58fa",
+          "format": {
+            "container": "wav",
+            "codec": "pcm-s16le",
+            "sample_rate_hz": 16000,
+            "channels": 1,
+            "sample_width_bits": 16
+          },
+          "frame_count": 32000,
+          "duration_ms": 2000
+        },
+        "errors": []
+      }
+    },
+    {
+      "sample_id": "noise-001",
+      "language": "none",
+      "scenario": "noise-only",
+      "reference": {
+        "text": null,
+        "normalized_text": null,
+        "normalization_version": null,
+        "language_segments": []
+      },
+      "license": {
+        "identifier": "CC0-1.0",
+        "redistribution": "allowed",
+        "evidence": "corpus/SOURCES.md#项目生成资产"
+      },
+      "source_audio": {
+        "path": "source/noise-001.wav",
+        "status": "passed",
+        "facts": {
+          "sha256": "cfeff762f60b6bb04e0b79784c6f4eb02a31d3bb085c377f28bdee8612424719",
+          "format": {
+            "container": "wav",
+            "codec": "pcm-s16le",
+            "sample_rate_hz": 44100,
+            "channels": 2,
+            "sample_width_bits": 16
+          },
+          "frame_count": 132300,
+          "duration_ms": 3000
+        },
+        "errors": []
+      },
+      "derived_audio": {
+        "path": "derived/noise-001.wav",
+        "status": "passed",
+        "algorithm": "pcm16-mono-linear-v1",
+        "facts": {
+          "sha256": "1f38d191d4217943cb0942cda25074c3a6b1f1bcc95ae8574b0df7ec1c2afd7d",
+          "format": {
+            "container": "wav",
+            "codec": "pcm-s16le",
+            "sample_rate_hz": 16000,
+            "channels": 1,
+            "sample_width_bits": 16
+          },
+          "frame_count": 48000,
+          "duration_ms": 3000
+        },
+        "errors": []
+      }
+    }
+  ],
+  "errors": []
+}

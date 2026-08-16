@@ -12,7 +12,7 @@ from types import SimpleNamespace
 from unittest.mock import patch
 
 from voice_asr_lab.cli import main
-from voice_asr_lab.nvidia import collect_nvidia_snapshot, validate_nvidia_snapshot
+from voice_asr_lab.system.nvidia import collect_nvidia_snapshot, validate_nvidia_snapshot
 
 
 NO_TOOLKIT = {
@@ -42,8 +42,8 @@ class NvidiaEnvironmentTests(unittest.TestCase):
 
     def test_no_nvidia_smi_produces_a_valid_no_gpu_result(self) -> None:
         with (
-            patch("voice_asr_lab.nvidia._find_nvidia_smi", return_value=None),
-            patch("voice_asr_lab.nvidia._probe_nvcc", return_value=NO_TOOLKIT),
+            patch("voice_asr_lab.system.nvidia._find_nvidia_smi", return_value=None),
+            patch("voice_asr_lab.system.nvidia._probe_nvcc", return_value=NO_TOOLKIT),
         ):
             snapshot = collect_nvidia_snapshot()
 
@@ -65,9 +65,9 @@ class NvidiaEnvironmentTests(unittest.TestCase):
         )
 
         with (
-            patch("voice_asr_lab.nvidia._find_nvidia_smi", return_value="nvidia-smi"),
-            patch("voice_asr_lab.nvidia._probe_nvcc", return_value=NO_TOOLKIT),
-            patch("voice_asr_lab.nvidia.subprocess.run", side_effect=[query_result, summary_result]),
+            patch("voice_asr_lab.system.nvidia._find_nvidia_smi", return_value="nvidia-smi"),
+            patch("voice_asr_lab.system.nvidia._probe_nvcc", return_value=NO_TOOLKIT),
+            patch("voice_asr_lab.system.nvidia.subprocess.run", side_effect=[query_result, summary_result]),
         ):
             snapshot = collect_nvidia_snapshot()
 
@@ -79,10 +79,10 @@ class NvidiaEnvironmentTests(unittest.TestCase):
 
     def test_query_timeout_is_recorded_instead_of_raised(self) -> None:
         with (
-            patch("voice_asr_lab.nvidia._find_nvidia_smi", return_value="nvidia-smi"),
-            patch("voice_asr_lab.nvidia._probe_nvcc", return_value=NO_TOOLKIT),
+            patch("voice_asr_lab.system.nvidia._find_nvidia_smi", return_value="nvidia-smi"),
+            patch("voice_asr_lab.system.nvidia._probe_nvcc", return_value=NO_TOOLKIT),
             patch(
-                "voice_asr_lab.nvidia.subprocess.run",
+                "voice_asr_lab.system.nvidia.subprocess.run",
                 side_effect=subprocess.TimeoutExpired(["nvidia-smi"], timeout=10),
             ),
         ):
@@ -107,4 +107,3 @@ class NvidiaEnvironmentTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

@@ -1,0 +1,221 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://voice.local/schemas/corpus-manifest.schema.json",
+  "title": "Voice ASR Lab versioned corpus manifest",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "corpus_id",
+    "corpus_version",
+    "corpus_fingerprint",
+    "created_at",
+    "samples"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "corpus_id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "corpus_version": {
+      "type": "string",
+      "pattern": "^v[1-9][0-9]*$"
+    },
+    "corpus_fingerprint": {
+      "type": "string",
+      "pattern": "^corpus-sha256-[0-9a-f]{64}$"
+    },
+    "created_at": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+    },
+    "samples": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "sample_id",
+          "audio",
+          "language",
+          "scenario",
+          "reference",
+          "source"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "sample_id": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "audio": {
+            "type": "object",
+            "required": ["path", "sha256", "format", "duration_ms"],
+            "additionalProperties": false,
+            "properties": {
+              "path": {
+                "type": "string",
+                "pattern": "^source/[A-Za-z0-9][A-Za-z0-9._/-]*$"
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "format": {
+                "type": "object",
+                "required": [
+                  "container",
+                  "codec",
+                  "sample_rate_hz",
+                  "channels",
+                  "sample_width_bits"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "container": {
+                    "enum": ["wav", "flac", "mp3", "ogg", "m4a", "raw-pcm"]
+                  },
+                  "codec": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sample_rate_hz": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "channels": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "sample_width_bits": {
+                    "type": ["integer", "null"],
+                    "minimum": 1
+                  }
+                }
+              },
+              "duration_ms": {
+                "type": "integer",
+                "minimum": 1
+              }
+            }
+          },
+          "language": {
+            "enum": ["zh-CN", "en-US", "zh-en", "none"]
+          },
+          "scenario": {
+            "enum": ["general-speech", "long-form", "short-command", "silence", "noise-only"]
+          },
+          "reference": {
+            "type": "object",
+            "required": [
+              "text",
+              "normalization_version",
+              "normalized_text",
+              "language_segments"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "text": {
+                "type": ["string", "null"],
+                "minLength": 1
+              },
+              "normalization_version": {
+                "type": ["string", "null"],
+                "minLength": 1,
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*-v[1-9][0-9]*$"
+              },
+              "normalized_text": {
+                "type": ["string", "null"],
+                "minLength": 1
+              },
+              "language_segments": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["language", "original", "normalized", "start", "end"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "language": {
+                      "enum": ["zh", "en"]
+                    },
+                    "original": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "normalized": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "start": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "end": {
+                      "type": "integer",
+                      "minimum": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "source": {
+            "type": "object",
+            "required": ["kind", "description", "uri", "license"],
+            "additionalProperties": false,
+            "properties": {
+              "kind": {
+                "enum": ["owned", "generated", "licensed-third-party"]
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1
+              },
+              "uri": {
+                "type": ["string", "null"],
+                "minLength": 1
+              },
+              "license": {
+                "type": "object",
+                "required": [
+                  "identifier",
+                  "name",
+                  "uri",
+                  "redistribution",
+                  "evidence"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "identifier": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "name": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "uri": {
+                    "type": ["string", "null"],
+                    "minLength": 1
+                  },
+                  "redistribution": {
+                    "enum": ["allowed", "restricted"]
+                  },
+                  "evidence": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

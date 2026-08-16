@@ -9,6 +9,10 @@
 - 录音、命令、设备、视觉和客户端模块
 - ASR 模型下载、加载或推理
 
+Python 实现位于 `src/voice_asr_lab`，按 `core`、`system`、`corpus` 三个职责目录组织；
+目录边界和依赖方向见 [`src/voice_asr_lab/README.md`](src/voice_asr_lab/README.md)。顶层只保留
+包元数据与 CLI 入口，后续 Provider 和实验工具不再继续堆叠为平级文件。
+
 ## 运行最小入口
 
 在仓库根目录执行：
@@ -89,6 +93,45 @@ python -m voice_asr_lab capture-baseline
 ```
 
 命令把主机、NVIDIA、实验台版本、依赖锁文件摘要、网络与存储策略摘要以及 Git 状态合并为一份内容寻址的 JSON，默认独占保存到 `reports/baselines/environment-baseline-v1.json`。如果文件已存在，命令拒绝覆盖；需要记录新环境时应使用新的 `--output` 文件名。
+
+## 验证语料清单契约
+
+```powershell
+$env:PYTHONPATH = "asr_lab/src"
+python -m voice_asr_lab validate-corpus-manifest asr_lab/corpus/manifests/schema-example.json
+```
+
+清单 Schema 固定语料版本、稳定样本标识、相对音频路径与 SHA-256、媒体格式、时长、
+语言、场景、原文、规范化文本、语言片段、规范化版本、内容指纹和来源许可。命令还检查
+样本标识唯一、路径不能逃逸 `corpus/source`，重新计算文字规范化结果与内容指纹，并要求
+静音和纯噪声样本使用空参考文本。示例不包含真实音频；实际 v1 清单包含 7 个受许可样本。
+
+## 检查并预处理真实语料
+
+```powershell
+$env:PYTHONPATH = "asr_lab/src"
+python -m voice_asr_lab check-corpus-audio asr_lab/corpus/manifests/voice-asr-eval-v1.json
+python -m voice_asr_lab preprocess-corpus asr_lab/corpus/manifests/voice-asr-eval-v1.json --output-root asr_lab/corpus/derived/v1
+```
+
+第一条命令逐样本核对文件、摘要和 WAV 媒体属性。第二条命令使用版本化整数算法生成
+16kHz、单声道、PCM16 派生输入；它拒绝覆盖源文件或任何已有输出。派生目录不进入 Git，
+可随时从受版本控制的源语料重建。
+
+## 验证语料版本并生成报告
+
+```powershell
+$env:PYTHONPATH = "asr_lab/src"
+python -m voice_asr_lab fingerprint-corpus-manifest asr_lab/corpus/manifests/voice-asr-eval-v1.json
+python -m voice_asr_lab report-corpus asr_lab/corpus/manifests/voice-asr-eval-v1.json `
+  --derived-root asr_lab/corpus/derived/v1 `
+  --output-json asr_lab/reports/corpus/voice-asr-eval-v1-summary.json `
+  --output-markdown asr_lab/reports/corpus/voice-asr-eval-v1-summary.md
+```
+
+内容指纹覆盖音频摘要、参考文本、语言/场景标签和规范化版本。报告同时验证源文件与派生
+输入，汇总中文、英文、混合、静音、噪声、长句、短命令覆盖，并保留许可证限制。报告命令
+采用独占写入；需要重新发布时应使用新文件名，不能静默覆盖旧证据。
 
 ## 学习检查点
 

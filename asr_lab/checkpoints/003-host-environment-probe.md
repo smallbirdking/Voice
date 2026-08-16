@@ -6,7 +6,7 @@
 - `status`: `complete`
 - `recorded_at`: `2026-08-16`
 - `environment`: `host-environment schema 1.0.0；Windows 11；CPython 3.14.7`
-- `evidence`: `asr_lab/schemas/host-environment.schema.json`、`asr_lab/src/voice_asr_lab/environment.py`、`asr_lab/tests/test_environment.py`
+- `evidence`: `asr_lab/schemas/host-environment.schema.json`、`asr_lab/src/voice_asr_lab/system/host.py`、`asr_lab/tests/test_environment.py`
 
 ## 目标
 
@@ -68,4 +68,3 @@ WSL 的中文错误使用无 BOM 的 UTF-16LE，而 Windows 控制台默认输�
 - [x] 缺失必填字段会被校验测试拒绝。
 - [x] Windows UTF-16 命令输出可以正确进入 UTF-8 JSON。
 - [x] 全部九个测试通过。
-

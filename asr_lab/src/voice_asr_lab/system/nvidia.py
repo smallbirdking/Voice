@@ -1,4 +1,4 @@
-"""NVIDIA GPU, driver, visibility, and CUDA toolkit probes."""
+"""NVIDIA system, driver, visibility, and CUDA toolkit probes."""
 
 from __future__ import annotations
 
@@ -12,8 +12,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from voice_asr_lab.environment import LAB_ROOT, _decode_command_output
-from voice_asr_lab.schema_validation import load_schema, validate_json_schema
+from voice_asr_lab.system.host import LAB_ROOT, _decode_command_output
+from voice_asr_lab.core.schema_validation import load_schema, validate_json_schema
 
 
 NVIDIA_ENVIRONMENT_SCHEMA_VERSION = "1.0.0"
@@ -280,4 +280,3 @@ def _find_nvcc() -> str | None:
             if candidate.is_file():
                 return str(candidate)
     return None
-

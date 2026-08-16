@@ -1,4 +1,4 @@
-"""Executable boundary proving cached experiments can run without external network."""
+"""System boundary proving cached experiments can run without external network."""
 
 from __future__ import annotations
 
@@ -13,7 +13,7 @@ from pathlib import Path
 from typing import Any
 
 
-LAB_ROOT = Path(__file__).resolve().parents[2]
+LAB_ROOT = Path(__file__).resolve().parents[3]
 DEFAULT_CACHE_ROOT = LAB_ROOT / "models" / "cache"
 DEFAULT_MANIFEST_PATH = LAB_ROOT / "models" / "manifests" / "synthetic-smoke.json"
 NETWORK_POLICY_PATH = LAB_ROOT / "network-policy.json"

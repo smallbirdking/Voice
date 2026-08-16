@@ -6,7 +6,7 @@
 - `status`: `complete`
 - `recorded_at`: `2026-08-16`
 - `environment`: `run identity schema 1.0.0；Windows host and NVIDIA snapshot`
-- `evidence`: `asr_lab/src/voice_asr_lab/identifiers.py`、`asr_lab/schemas/run-context.schema.json`、`asr_lab/schemas/run-linked-record.schema.json`、`asr_lab/tests/test_identifiers.py`
+- `evidence`: `asr_lab/src/voice_asr_lab/core/identifiers.py`、`asr_lab/schemas/run-context.schema.json`、`asr_lab/schemas/run-linked-record.schema.json`、`asr_lab/tests/test_identifiers.py`
 
 ## 目标
 

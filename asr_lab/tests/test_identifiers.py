@@ -9,7 +9,7 @@ from contextlib import redirect_stdout
 from datetime import datetime, timezone
 
 from voice_asr_lab.cli import main
-from voice_asr_lab.identifiers import (
+from voice_asr_lab.core.identifiers import (
     create_environment_snapshot_id,
     create_run_context,
     create_run_id,
