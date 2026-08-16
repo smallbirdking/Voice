@@ -11,14 +11,14 @@ from pathlib import Path
 from typing import Any
 
 from voice_asr_lab import __version__
-from voice_asr_lab.system.host import collect_host_snapshot, validate_host_snapshot
 from voice_asr_lab.core.identifiers import create_environment_snapshot_id
-from voice_asr_lab.system.nvidia import collect_nvidia_snapshot, validate_nvidia_snapshot
+from voice_asr_lab.core.paths import LAB_ROOT
 from voice_asr_lab.core.schema_validation import load_schema, validate_json_schema
+from voice_asr_lab.system.host import collect_host_snapshot, validate_host_snapshot
+from voice_asr_lab.system.nvidia import collect_nvidia_snapshot, validate_nvidia_snapshot
 
 
 BASELINE_SCHEMA_VERSION = "1.0.0"
-LAB_ROOT = Path(__file__).resolve().parents[3]
 REPOSITORY_ROOT = LAB_ROOT.parent
 BASELINE_SCHEMA_PATH = LAB_ROOT / "schemas" / "environment-baseline.schema.json"
 DEFAULT_BASELINE_OUTPUT = LAB_ROOT / "reports" / "baselines" / "environment-baseline-v1.json"

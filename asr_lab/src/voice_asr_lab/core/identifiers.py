@@ -8,14 +8,13 @@ import re
 import secrets
 from collections.abc import Mapping, Sequence
 from datetime import datetime, timezone
-from pathlib import Path
 from typing import Any
 
+from voice_asr_lab.core.paths import LAB_ROOT
 from voice_asr_lab.core.schema_validation import load_schema, validate_json_schema
 
 
 RUN_IDENTITY_SCHEMA_VERSION = "1.0.0"
-LAB_ROOT = Path(__file__).resolve().parents[3]
 RUN_CONTEXT_SCHEMA_PATH = LAB_ROOT / "schemas" / "run-context.schema.json"
 LINKED_RECORD_SCHEMA_PATH = LAB_ROOT / "schemas" / "run-linked-record.schema.json"
 RUN_ID_PATTERN = re.compile(r"^run-[0-9]{8}T[0-9]{12}Z-[0-9a-f]{12}$")

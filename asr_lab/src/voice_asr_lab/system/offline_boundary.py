@@ -12,8 +12,8 @@ from contextlib import contextmanager
 from pathlib import Path
 from typing import Any
 
+from voice_asr_lab.core.paths import LAB_ROOT
 
-LAB_ROOT = Path(__file__).resolve().parents[3]
 DEFAULT_CACHE_ROOT = LAB_ROOT / "models" / "cache"
 DEFAULT_MANIFEST_PATH = LAB_ROOT / "models" / "manifests" / "synthetic-smoke.json"
 NETWORK_POLICY_PATH = LAB_ROOT / "network-policy.json"

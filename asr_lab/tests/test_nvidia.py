@@ -96,7 +96,7 @@ class NvidiaEnvironmentTests(unittest.TestCase):
         output = io.StringIO()
 
         with (
-            patch("voice_asr_lab.cli.collect_nvidia_snapshot", return_value=self.snapshot),
+            patch("voice_asr_lab.commands.system.collect_nvidia_snapshot", return_value=self.snapshot),
             redirect_stdout(output),
         ):
             exit_code = main(["probe-nvidia"])

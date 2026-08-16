@@ -8,11 +8,11 @@ from pathlib import Path, PurePosixPath
 from typing import Any
 
 from voice_asr_lab.corpus.fingerprint import compute_corpus_fingerprint
-from voice_asr_lab.core.schema_validation import load_schema, validate_json_schema
 from voice_asr_lab.corpus.text_normalization import NORMALIZATION_VERSION, normalize_reference
+from voice_asr_lab.core.paths import LAB_ROOT
+from voice_asr_lab.core.schema_validation import load_schema, validate_json_schema
 
 
-LAB_ROOT = Path(__file__).resolve().parents[3]
 CORPUS_MANIFEST_SCHEMA = LAB_ROOT / "schemas" / "corpus-manifest.schema.json"
 NON_SPEECH_SCENARIOS = frozenset({"silence", "noise-only"})
 

@@ -14,11 +14,11 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from voice_asr_lab.core.paths import LAB_ROOT
 from voice_asr_lab.core.schema_validation import load_schema, validate_json_schema
 
 
 HOST_ENVIRONMENT_SCHEMA_VERSION = "1.0.0"
-LAB_ROOT = Path(__file__).resolve().parents[3]
 HOST_ENVIRONMENT_SCHEMA_PATH = LAB_ROOT / "schemas" / "host-environment.schema.json"
 
 
