@@ -61,6 +61,35 @@ python -m unittest discover -s asr_lab/tests -v
 
 `tests/test_storage_layout.py` 会调用 `git check-ignore`，防止后续修改忽略规则时意外放开模型缓存或临时产物。
 
+## 观察一次运行的记录关联
+
+```powershell
+$env:PYTHONPATH = "asr_lab/src"
+python -m voice_asr_lab demo-run-linkage
+```
+
+该命令采集当前主机与 NVIDIA 快照，创建一次新的 `run_id`，并用规范化环境 JSON 的 SHA-256 创建
+`environment_snapshot_id`。输出中的逐样本结果、资源采样和报告示例都携带这两个标识，因此后续即使文件分开保存，也能判断它们是否来自同一次运行和同一份环境快照。
+
+## 验证本地网络边界
+
+```powershell
+$env:PYTHONPATH = "asr_lab/src"
+python -m voice_asr_lab prepare-synthetic-cache
+python -m voice_asr_lab offline-smoke
+```
+
+准备命令在被 Git 忽略的模型缓存中生成一个确定性小型标记；离线命令先按保留清单校验缓存，再阻断当前 Python 进程的非 loopback socket，并完全在本地处理合成 PCM。规则详见 [`NETWORK_POLICY.md`](NETWORK_POLICY.md) 和机器可读的 [`network-policy.json`](network-policy.json)。这个步骤只验证网络与缓存边界，不代表已经运行真实 ASR 推理。
+
+## 保存环境基线
+
+```powershell
+$env:PYTHONPATH = "asr_lab/src"
+python -m voice_asr_lab capture-baseline
+```
+
+命令把主机、NVIDIA、实验台版本、依赖锁文件摘要、网络与存储策略摘要以及 Git 状态合并为一份内容寻址的 JSON，默认独占保存到 `reports/baselines/environment-baseline-v1.json`。如果文件已存在，命令拒绝覆盖；需要记录新环境时应使用新的 `--output` 文件名。
+
 ## 学习检查点
 
 每个已完成任务都应在 `checkpoints/` 中留下可复盘记录。新记录从

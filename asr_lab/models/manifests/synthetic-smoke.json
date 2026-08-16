@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0.0",
+  "model_id": "synthetic-smoke-cache-v1",
+  "artifact_kind": "local-test-fixture-not-an-asr-model",
+  "source": "generated-locally-by-prepare-synthetic-cache",
+  "network_required": false,
+  "files": [
+    {
+      "path": "synthetic-smoke/model.marker",
+      "size_bytes": 40,
+      "sha256": "28a5727456f439abd1f7660df0e98ab125e4884165cca089c256e8eefc845e8a"
+    }
+  ]
+}

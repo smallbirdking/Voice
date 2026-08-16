@@ -1,0 +1,109 @@
+{
+  "environment_snapshot_id": "env-sha256-7699e9ce6b3720ffd0eab9fa66e9244044d1d8dc85e131f49c02aca0a91dbb81",
+  "schema_version": "1.0.0",
+  "captured_at": "2026-08-16T13:11:57.697435Z",
+  "host": {
+    "schema_version": "1.0.0",
+    "collected_at": "2026-08-16T13:11:57.734464Z",
+    "platform": {
+      "system": "Windows",
+      "release": "11",
+      "version": "10.0.26200",
+      "machine": "AMD64",
+      "architecture": "64bit"
+    },
+    "wsl": {
+      "executable": "C:\\WINDOWS\\system32\\wsl.exe",
+      "status": "available",
+      "wsl2_detected": true,
+      "details": "NAME              STATE           VERSION\r\n* docker-desktop    Stopped         2"
+    },
+    "cpu": {
+      "logical_cores": 24,
+      "processor": "Intel64 Family 6 Model 198 Stepping 2, GenuineIntel",
+      "identifier": "Intel64 Family 6 Model 198 Stepping 2, GenuineIntel",
+      "architecture": "AMD64"
+    },
+    "memory": {
+      "total_bytes": 33567981568,
+      "available_bytes": 16304824320,
+      "probe": "windows-global-memory-status"
+    },
+    "disk": {
+      "path": "D:\\workspace\\ai\\Voice",
+      "total_bytes": 701751431168,
+      "used_bytes": 37509107712,
+      "free_bytes": 664242323456
+    },
+    "python": {
+      "version": "3.14.7",
+      "implementation": "CPython",
+      "executable": "C:\\Python314\\python.exe",
+      "prefix": "C:\\Python314",
+      "base_prefix": "C:\\Python314",
+      "is_virtual_environment": false
+    },
+    "errors": []
+  },
+  "nvidia": {
+    "schema_version": "1.0.0",
+    "collected_at": "2026-08-16T13:11:57.874195Z",
+    "status": "available",
+    "nvidia_smi": {
+      "executable": "C:\\WINDOWS\\system32\\nvidia-smi.exe",
+      "return_code": 0,
+      "driver_supported_cuda_version": "13.2"
+    },
+    "visibility": {
+      "nvidia_smi_visible": true,
+      "cuda_visible_devices": null,
+      "gpu_count": 1
+    },
+    "cuda": {
+      "toolkit": {
+        "status": "not-installed",
+        "executable": null,
+        "version": null,
+        "details": "nvcc was not found on PATH or under CUDA_PATH."
+      }
+    },
+    "gpus": [
+      {
+        "index": 0,
+        "uuid": "GPU-8840b48b-9072-9711-389d-dbc6cc1273b6",
+        "name": "NVIDIA GeForce RTX 5060 Ti",
+        "driver_version": "596.36",
+        "memory_total_mib": 16311,
+        "memory_free_mib": 14896
+      }
+    ],
+    "errors": []
+  },
+  "project": {
+    "name": "voice-asr-lab",
+    "version": "0.1.0",
+    "dependency_lock": {
+      "path": "uv.lock",
+      "sha256": "f85ec92151ebfb0c1926494ce61ec131ef35b16f1b4ad3a04fea8cd7a695857e"
+    }
+  },
+  "policies": {
+    "network": {
+      "path": "network-policy.json",
+      "policy_id": "local-asr-no-cloud-audio",
+      "sha256": "f245c6691313c3112ecb04d28345daec7a947ec0ee1de8a05753f112bf21424c"
+    },
+    "storage": {
+      "path": "storage-layout.json",
+      "schema_version": "1.0.0",
+      "sha256": "1197bc91ce9448dcc40aa2a8c32387983b9a356eb5f8c5e5a022036176c16d31"
+    }
+  },
+  "source_control": {
+    "repository_root": "D:\\workspace\\ai\\Voice",
+    "head_commit": "1b857a3c9676aae56f1a016aa2a1230255304c91",
+    "dirty": true,
+    "error": null
+  },
+  "errors": []
+}

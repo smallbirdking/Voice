@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://voice.local/schemas/run-linked-record.schema.json",
+  "title": "ASR experiment linked record envelope",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "record_type",
+    "run_id",
+    "environment_snapshot_id",
+    "payload"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "record_type": {
+      "type": "string",
+      "enum": [
+        "sample_result",
+        "resource_sample",
+        "report"
+      ]
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^run-[0-9]{8}T[0-9]{12}Z-[0-9a-f]{12}$"
+    },
+    "environment_snapshot_id": {
+      "type": "string",
+      "pattern": "^env-sha256-[0-9a-f]{64}$"
+    },
+    "payload": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}

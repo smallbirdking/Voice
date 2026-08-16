@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0.0",
+  "policy_id": "local-asr-no-cloud-audio",
+  "phases": {
+    "model_preparation": {
+      "external_network": "allowed",
+      "loopback_network": "allowed",
+      "allowed_external_payloads": [
+        "dependency_packages",
+        "model_metadata",
+        "model_files",
+        "license_metadata"
+      ],
+      "forbidden_external_payloads": [
+        "test_audio",
+        "reference_text",
+        "transcription_output",
+        "resource_samples"
+      ]
+    },
+    "inference": {
+      "external_network": "blocked",
+      "loopback_network": "allowed",
+      "allowed_external_payloads": [],
+      "forbidden_external_payloads": [
+        "test_audio",
+        "reference_text",
+        "transcription_output",
+        "resource_samples"
+      ]
+    },
+    "reporting": {
+      "external_network": "blocked",
+      "loopback_network": "allowed",
+      "allowed_external_payloads": [],
+      "forbidden_external_payloads": [
+        "test_audio",
+        "reference_text",
+        "transcription_output",
+        "resource_samples"
+      ]
+    }
+  },
+  "local_service_rule": "Loopback may be used only for a service running on the same benchmark machine, such as a local NIM container.",
+  "cloud_asr_rule": "Any path that requires test audio to leave the benchmark machine is outside this evaluation."
+}

@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://voice.local/schemas/environment-baseline.schema.json",
+  "title": "ASR evaluation environment baseline",
+  "type": "object",
+  "required": [
+    "environment_snapshot_id",
+    "schema_version",
+    "captured_at",
+    "host",
+    "nvidia",
+    "project",
+    "policies",
+    "source_control",
+    "errors"
+  ],
+  "properties": {
+    "environment_snapshot_id": {
+      "type": "string",
+      "pattern": "^env-sha256-[0-9a-f]{64}$"
+    },
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "captured_at": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T.+Z$"
+    },
+    "host": {
+      "type": "object"
+    },
+    "nvidia": {
+      "type": "object"
+    },
+    "project": {
+      "type": "object",
+      "required": ["name", "version", "dependency_lock"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "const": "voice-asr-lab"
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dependency_lock": {
+          "type": "object",
+          "required": ["path", "sha256"],
+          "properties": {
+            "path": {
+              "type": "string",
+              "const": "uv.lock"
+            },
+            "sha256": {
+              "type": ["string", "null"],
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "policies": {
+      "type": "object",
+      "required": ["network", "storage"],
+      "properties": {
+        "network": {
+          "type": "object",
+          "required": ["path", "policy_id", "sha256"],
+          "properties": {
+            "path": {
+              "type": "string",
+              "const": "network-policy.json"
+            },
+            "policy_id": {
+              "type": ["string", "null"]
+            },
+            "sha256": {
+              "type": ["string", "null"],
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          },
+          "additionalProperties": false
+        },
+        "storage": {
+          "type": "object",
+          "required": ["path", "schema_version", "sha256"],
+          "properties": {
+            "path": {
+              "type": "string",
+              "const": "storage-layout.json"
+            },
+            "schema_version": {
+              "type": ["string", "null"]
+            },
+            "sha256": {
+              "type": ["string", "null"],
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "source_control": {
+      "type": "object",
+      "required": ["repository_root", "head_commit", "dirty", "error"],
+      "properties": {
+        "repository_root": {
+          "type": ["string", "null"]
+        },
+        "head_commit": {
+          "type": ["string", "null"],
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "dirty": {
+          "type": ["boolean", "null"]
+        },
+        "error": {
+          "type": ["string", "null"]
+        }
+      },
+      "additionalProperties": false
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

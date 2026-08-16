@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import re
 from collections.abc import Mapping
 from pathlib import Path
 from typing import Any
@@ -35,6 +36,10 @@ def validate_json_schema(instance: Any, schema: Mapping[str, Any], path: str = "
         minimum_length = schema.get("minLength")
         if minimum_length is not None and len(instance) < minimum_length:
             errors.append(f"{path}: string is shorter than {minimum_length}")
+
+        pattern = schema.get("pattern")
+        if pattern is not None and re.search(pattern, instance) is None:
+            errors.append(f"{path}: string does not match pattern {pattern!r}")
 
     if isinstance(instance, (int, float)) and not isinstance(instance, bool):
         minimum = schema.get("minimum")
@@ -86,4 +91,3 @@ def _matches_single_type(instance: Any, expected: str) -> bool:
     if expected == "null":
         return instance is None
     raise ValueError(f"unsupported JSON Schema type: {expected}")
-
