@@ -1,0 +1,5 @@
+/.agents/
+/.claude/
+/.opencode/
+/openspec/*
+/openspec/changes/evaluate-local-asr-providers/
