@@ -133,6 +133,53 @@ python -m voice_asr_lab report-corpus asr_lab/corpus/manifests/voice-asr-eval-v1
 输入，汇总中文、英文、混合、静音、噪声、长句、短命令覆盖，并保留许可证限制。报告命令
 采用独占写入；需要重新发布时应使用新文件名，不能静默覆盖旧证据。
 
+## 验证逐样本原始结果
+
+```powershell
+$env:PYTHONPATH = "asr_lab/src"
+python -m voice_asr_lab validate-sample-result asr_lab/schemas/sample-result.example.json
+```
+
+逐样本结果把环境、语料、Provider、模型、实际配置、文字、墙钟与单调计时、结果状态、
+结构化错误、进程退出码和资源采样引用保存在一个不可变事实记录中。流式 partial/final 等
+事件使用独立事件文件，不嵌入这一层；CER/WER 和实时率属于后续派生指标，也不回写原始结果。
+
+## 验证流式事实事件
+
+```powershell
+$env:PYTHONPATH = "asr_lab/src"
+python -m voice_asr_lab validate-stream-events asr_lab/schemas/stream-event.example.jsonl
+```
+
+JSONL 中每行是一条不可变事实，统一记录音频进入、入队、开始消费、partial、VAD endpoint、
+提交、final、取消和关闭。流内序号、单调时间、关联标识和最终关闭会被交叉检查。
+
+## 聚合逐样本实验报告
+
+```powershell
+$env:PYTHONPATH = "asr_lab/src"
+python -m voice_asr_lab aggregate-results results.jsonl `
+  asr_lab/corpus/manifests/voice-asr-eval-v1.json `
+  --output-json report.json --output-markdown report.md
+```
+
+聚合器从语料清单读取版本化参考文字，从逐样本 JSONL 读取事实并计算派生指标。失败样本仍保留
+在明细与失败列表中；准确率不会为没有识别输出的失败样本伪造数值。
+
+## 运行合成 Provider 端到端实验
+
+```powershell
+$env:PYTHONPATH = "asr_lab/src"
+python -m voice_asr_lab run-synthetic-experiment `
+  asr_lab/corpus/manifests/voice-asr-eval-v1.json `
+  --derived-root asr_lab/corpus/derived/v1 `
+  --environment-baseline asr_lab/reports/baselines/environment-baseline-v1.json `
+  --output-dir asr_lab/reports/synthetic/common-tools-v1
+```
+
+命令对完整 v1 语料运行离线回放和确定性合成 Provider，保存逐样本事件、资源采样、原始结果、
+派生指标、JSON/Markdown 报告及字段学习索引。输出目录必须是新目录，历史证据不会被覆盖。
+
 ## 学习检查点
 
 每个已完成任务都应在 `checkpoints/` 中留下可复盘记录。新记录从

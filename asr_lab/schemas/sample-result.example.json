@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "sample_result",
+  "run_id": "run-20260816T120000000000Z-a1b2c3d4e5f6",
+  "environment_snapshot_id": "env-sha256-0000000000000000000000000000000000000000000000000000000000000000",
+  "corpus": {
+    "corpus_id": "voice-asr-eval",
+    "corpus_version": "v1",
+    "corpus_fingerprint": "corpus-sha256-46f7d367fe4b7605cdf2a0d8e4a76643b24aa911c5b49e889d0eb4df3472620b",
+    "reference_normalization_version": "text-normalization-v1"
+  },
+  "input": {
+    "sample_id": "zh-short-command-001",
+    "language": "zh-CN",
+    "scenario": "short-command",
+    "audio": {
+      "path": "derived/v1/zh-short-command-001.wav",
+      "sha256": "3f5ebd192bf6ced2b3e6d121e2b5012130c7d70eeaf36180232ed307f524f95c",
+      "duration_ms": 1855,
+      "format": {
+        "container": "wav",
+        "codec": "pcm-s16le",
+        "sample_rate_hz": 16000,
+        "channels": 1,
+        "sample_width_bits": 16
+      }
+    }
+  },
+  "provider": {
+    "provider_id": "synthetic",
+    "implementation_version": "voice-asr-lab-0.1.0",
+    "runtime": {
+      "name": "python",
+      "version": "3.14.0",
+      "device": "cpu"
+    }
+  },
+  "model": {
+    "model_id": "synthetic-deterministic-v1",
+    "revision": "v1",
+    "artifact_fingerprint": null
+  },
+  "configuration": {
+    "partial_count": 2,
+    "final_delay_ms": 100
+  },
+  "transcription": {
+    "raw_text": "请举起你的左手。",
+    "normalized_text": "请举起你的左手",
+    "normalization_version": "text-normalization-v1",
+    "detected_language": "zh-CN",
+    "provider_payload": {
+      "hypothesis_index": 2
+    }
+  },
+  "timing": {
+    "started_at": "2026-08-16T12:00:00.000000Z",
+    "finished_at": "2026-08-16T12:00:00.003000Z",
+    "monotonic_started_ns": 1000000000,
+    "inference_started_ns": 1000500000,
+    "inference_finished_ns": 1002500000,
+    "monotonic_finished_ns": 1003000000,
+    "inference_duration_ms": 2.0,
+    "total_duration_ms": 3.0
+  },
+  "outcome": {
+    "status": "succeeded",
+    "process_exit_code": 0,
+    "error": null
+  },
+  "resource_sample_refs": [
+    "resource-sample-000001",
+    "resource-sample-000002"
+  ]
+}

@@ -34,9 +34,13 @@ class CliArchitectureTests(unittest.TestCase):
                 "preprocess-corpus",
                 "fingerprint-corpus-manifest",
                 "report-corpus",
+                "validate-sample-result",
+                "validate-stream-events",
+                "aggregate-results",
+                "run-synthetic-experiment",
             },
         )
-        self.assertEqual(len(registry.command_names), 13)
+        self.assertEqual(len(registry.command_names), 17)
 
     def test_registry_rejects_duplicate_command_names(self) -> None:
         command = CommandDefinition(

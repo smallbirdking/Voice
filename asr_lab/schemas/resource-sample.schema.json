@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://voice.local/schemas/resource-sample.schema.json",
+  "title": "ASR experiment resource sample",
+  "type": "object",
+  "required": [
+    "schema_version", "record_type", "run_id", "environment_snapshot_id",
+    "provider_id", "session_id", "sample_id", "resource_sample_id",
+    "sequence", "monotonic_ns", "wall_time", "cpu", "process", "gpu", "errors"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "record_type": {"const": "resource_sample"},
+    "run_id": {"type": "string", "pattern": "^run-[0-9]{8}T[0-9]{12}Z-[0-9a-f]{12}$"},
+    "environment_snapshot_id": {"type": "string", "pattern": "^env-sha256-[0-9a-f]{64}$"},
+    "provider_id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+    "session_id": {"type": "string", "pattern": "^session-[0-9a-z]+(?:-[0-9a-z]+)*$"},
+    "sample_id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+    "resource_sample_id": {"type": "string", "pattern": "^resource-sample-[0-9]{6}$"},
+    "sequence": {"type": "integer", "minimum": 0},
+    "monotonic_ns": {"type": "integer", "minimum": 0},
+    "wall_time": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T.+Z$"},
+    "cpu": {
+      "type": "object",
+      "required": ["process_time_ms", "percent_since_previous"],
+      "additionalProperties": false,
+      "properties": {
+        "process_time_ms": {"type": ["number", "null"], "minimum": 0},
+        "percent_since_previous": {"type": ["number", "null"], "minimum": 0}
+      }
+    },
+    "process": {
+      "type": "object",
+      "required": ["memory_rss_bytes"],
+      "additionalProperties": false,
+      "properties": {
+        "memory_rss_bytes": {"type": ["integer", "null"], "minimum": 0}
+      }
+    },
+    "gpu": {
+      "type": "object",
+      "required": ["status", "devices"],
+      "additionalProperties": false,
+      "properties": {
+        "status": {"enum": ["available", "unavailable", "error"]},
+        "devices": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["index", "uuid", "utilization_percent", "memory_used_mib", "memory_free_mib"],
+            "additionalProperties": false,
+            "properties": {
+              "index": {"type": "integer", "minimum": 0},
+              "uuid": {"type": "string", "minLength": 1},
+              "utilization_percent": {"type": ["number", "null"], "minimum": 0},
+              "memory_used_mib": {"type": ["number", "null"], "minimum": 0},
+              "memory_free_mib": {"type": ["number", "null"], "minimum": 0}
+            }
+          }
+        }
+      }
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["collector", "type", "message"],
+        "additionalProperties": false,
+        "properties": {
+          "collector": {"enum": ["process", "gpu"]},
+          "type": {"type": "string", "minLength": 1},
+          "message": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}

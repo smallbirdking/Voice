@@ -1,0 +1,58 @@
+{
+  "zh-short-command-001": {
+    "mode": "offline",
+    "chunk_count": 10,
+    "emitted_bytes": 59350,
+    "audio_duration_ms": 1854.6875,
+    "monotonic_started_ns": 169420394331400,
+    "monotonic_finished_ns": 169420394350800
+  },
+  "zh-long-form-001": {
+    "mode": "offline",
+    "chunk_count": 34,
+    "emitted_bytes": 216502,
+    "audio_duration_ms": 6765.6875,
+    "monotonic_started_ns": 169420520592600,
+    "monotonic_finished_ns": 169420520656200
+  },
+  "en-general-speech-001": {
+    "mode": "offline",
+    "chunk_count": 5,
+    "emitted_bytes": 30928,
+    "audio_duration_ms": 966.5,
+    "monotonic_started_ns": 169420627928000,
+    "monotonic_finished_ns": 169420627937300
+  },
+  "en-short-command-001": {
+    "mode": "offline",
+    "chunk_count": 10,
+    "emitted_bytes": 57678,
+    "audio_duration_ms": 1802.4375,
+    "monotonic_started_ns": 169420736839000,
+    "monotonic_finished_ns": 169420736853600
+  },
+  "zh-en-mixed-001": {
+    "mode": "offline",
+    "chunk_count": 20,
+    "emitted_bytes": 125028,
+    "audio_duration_ms": 3907.125,
+    "monotonic_started_ns": 169420845261900,
+    "monotonic_finished_ns": 169420845309400
+  },
+  "silence-001": {
+    "mode": "offline",
+    "chunk_count": 10,
+    "emitted_bytes": 64000,
+    "audio_duration_ms": 2000.0,
+    "monotonic_started_ns": 169420954987500,
+    "monotonic_finished_ns": 169420955002100
+  },
+  "noise-001": {
+    "mode": "offline",
+    "chunk_count": 15,
+    "emitted_bytes": 96000,
+    "audio_duration_ms": 3000.0,
+    "monotonic_started_ns": 169421047943900,
+    "monotonic_finished_ns": 169421047964600
+  }
+}

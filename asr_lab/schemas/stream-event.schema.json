@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://voice.local/schemas/stream-event.schema.json",
+  "title": "ASR streaming fact event",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "record_type",
+    "run_id",
+    "environment_snapshot_id",
+    "sample_id",
+    "provider_id",
+    "session_id",
+    "event_id",
+    "sequence",
+    "event_type",
+    "monotonic_ns",
+    "wall_time",
+    "audio_offset_ms",
+    "payload"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "record_type": {"const": "stream_event"},
+    "run_id": {"type": "string", "pattern": "^run-[0-9]{8}T[0-9]{12}Z-[0-9a-f]{12}$"},
+    "environment_snapshot_id": {"type": "string", "pattern": "^env-sha256-[0-9a-f]{64}$"},
+    "sample_id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+    "provider_id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+    "session_id": {"type": "string", "pattern": "^session-[0-9a-z]+(?:-[0-9a-z]+)*$"},
+    "event_id": {"type": "string", "pattern": "^event-[0-9]{6}$"},
+    "sequence": {"type": "integer", "minimum": 0},
+    "event_type": {
+      "enum": [
+        "audio_received",
+        "enqueued",
+        "consumption_started",
+        "partial",
+        "vad_endpoint",
+        "segment_committed",
+        "final",
+        "cancelled",
+        "closed"
+      ]
+    },
+    "monotonic_ns": {"type": "integer", "minimum": 0},
+    "wall_time": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T.+Z$"},
+    "audio_offset_ms": {"type": ["number", "null"], "minimum": 0},
+    "payload": {
+      "type": "object",
+      "required": [
+        "chunk_index",
+        "chunk_duration_ms",
+        "byte_count",
+        "queue_depth",
+        "text",
+        "revision",
+        "segment_id",
+        "endpoint_source",
+        "reason",
+        "provider_payload"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "chunk_index": {"type": ["integer", "null"], "minimum": 0},
+        "chunk_duration_ms": {"type": ["number", "null"], "minimum": 0},
+        "byte_count": {"type": ["integer", "null"], "minimum": 0},
+        "queue_depth": {"type": ["integer", "null"], "minimum": 0},
+        "text": {"type": ["string", "null"]},
+        "revision": {"type": ["integer", "null"], "minimum": 1},
+        "segment_id": {"type": ["string", "null"], "minLength": 1},
+        "endpoint_source": {"type": ["string", "null"], "minLength": 1},
+        "reason": {"type": ["string", "null"], "minLength": 1},
+        "provider_payload": {}
+      }
+    }
+  }
+}

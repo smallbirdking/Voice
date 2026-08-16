@@ -1,0 +1,288 @@
+{
+  "report_schema_version": "1.0.0",
+  "report_type": "asr_experiment_aggregate",
+  "status": "passed",
+  "generated_at": "2026-08-16T15:26:16.210817Z",
+  "run_id": "run-20260816T152615449367Z-9730f8143d18",
+  "environment_snapshot_id": "env-sha256-7699e9ce6b3720ffd0eab9fa66e9244044d1d8dc85e131f49c02aca0a91dbb81",
+  "provider": {
+    "provider_id": "synthetic",
+    "implementation_version": "0.1.0",
+    "runtime": {
+      "name": "CPython",
+      "version": "3.14.7",
+      "device": "cpu"
+    }
+  },
+  "model": {
+    "model_id": "synthetic-deterministic-v1",
+    "revision": "v1",
+    "artifact_fingerprint": null
+  },
+  "corpus": {
+    "corpus_id": "voice-asr-eval",
+    "corpus_version": "v1",
+    "corpus_fingerprint": "corpus-sha256-46f7d367fe4b7605cdf2a0d8e4a76643b24aa911c5b49e889d0eb4df3472620b"
+  },
+  "summary": {
+    "sample_count": 7,
+    "succeeded_count": 7,
+    "failed_count": 0,
+    "outcome_counts": {
+      "succeeded": 7
+    }
+  },
+  "accuracy": {
+    "cer": {
+      "evaluated_samples": 2,
+      "edit_distance": 0,
+      "reference_units": 46,
+      "rate": 0.0
+    },
+    "wer": {
+      "evaluated_samples": 2,
+      "edit_distance": 0,
+      "reference_units": 6,
+      "rate": 0.0
+    },
+    "mixed_error": {
+      "evaluated_samples": 1,
+      "edit_distance": 0,
+      "reference_units": 9,
+      "rate": 0.0
+    },
+    "keyword": {
+      "evaluated_samples": 2,
+      "hit_samples": 2,
+      "sample_hit_rate": 1.0
+    },
+    "silence": {
+      "evaluated_samples": 2,
+      "false_recognition_samples": 0,
+      "false_recognition_rate": 0.0
+    }
+  },
+  "performance": {
+    "evaluated_samples": 7,
+    "mean_realtime_factor": 0.005951583830759124,
+    "max_realtime_factor": 0.015088923395445136
+  },
+  "samples": [
+    {
+      "sample_id": "zh-short-command-001",
+      "language": "zh-CN",
+      "scenario": "short-command",
+      "status": "succeeded",
+      "normalized_reference": "请举起你的左手",
+      "normalized_hypothesis": "请举起你的左手",
+      "metrics": {
+        "cer": {
+          "reference_units": 7,
+          "hypothesis_units": 7,
+          "edit_distance": 0,
+          "substitutions": 0,
+          "deletions": 0,
+          "insertions": 0,
+          "rate": 0.0
+        },
+        "wer": null,
+        "mixed_error": null,
+        "keyword": {
+          "keyword_count": 1,
+          "hit_count": 1,
+          "hit_rate": 1.0,
+          "all_hit": true,
+          "details": [
+            {
+              "keyword": "请举起你的左手",
+              "hit": true
+            }
+          ]
+        },
+        "silence": null,
+        "realtime_factor": 0.008113153638814015
+      },
+      "resource_sample_refs": [
+        "resource-sample-000001",
+        "resource-sample-000002"
+      ],
+      "error": null
+    },
+    {
+      "sample_id": "zh-long-form-001",
+      "language": "zh-CN",
+      "scenario": "long-form",
+      "status": "succeeded",
+      "normalized_reference": "我认为如果所有人都学会了道本语他们就可以与全世界的人交流而无需学习英语或世界语",
+      "normalized_hypothesis": "我认为如果所有人都学会了道本语他们就可以与全世界的人交流而无需学习英语或世界语",
+      "metrics": {
+        "cer": {
+          "reference_units": 39,
+          "hypothesis_units": 39,
+          "edit_distance": 0,
+          "substitutions": 0,
+          "deletions": 0,
+          "insertions": 0,
+          "rate": 0.0
+        },
+        "wer": null,
+        "mixed_error": null,
+        "keyword": null,
+        "silence": null,
+        "realtime_factor": 0.0022208394915755247
+      },
+      "resource_sample_refs": [
+        "resource-sample-000003",
+        "resource-sample-000004"
+      ],
+      "error": null
+    },
+    {
+      "sample_id": "en-general-speech-001",
+      "language": "en-US",
+      "scenario": "general-speech",
+      "status": "succeeded",
+      "normalized_reference": "my name is jack",
+      "normalized_hypothesis": "my name is jack",
+      "metrics": {
+        "cer": null,
+        "wer": {
+          "reference_units": 4,
+          "hypothesis_units": 4,
+          "edit_distance": 0,
+          "substitutions": 0,
+          "deletions": 0,
+          "insertions": 0,
+          "rate": 0.0
+        },
+        "mixed_error": null,
+        "keyword": null,
+        "silence": null,
+        "realtime_factor": 0.015088923395445136
+      },
+      "resource_sample_refs": [
+        "resource-sample-000005",
+        "resource-sample-000006"
+      ],
+      "error": null
+    },
+    {
+      "sample_id": "en-short-command-001",
+      "language": "en-US",
+      "scenario": "short-command",
+      "status": "succeeded",
+      "normalized_reference": "please respond",
+      "normalized_hypothesis": "please respond",
+      "metrics": {
+        "cer": null,
+        "wer": {
+          "reference_units": 2,
+          "hypothesis_units": 2,
+          "edit_distance": 0,
+          "substitutions": 0,
+          "deletions": 0,
+          "insertions": 0,
+          "rate": 0.0
+        },
+        "mixed_error": null,
+        "keyword": {
+          "keyword_count": 1,
+          "hit_count": 1,
+          "hit_rate": 1.0,
+          "all_hit": true,
+          "details": [
+            {
+              "keyword": "please respond",
+              "hit": true
+            }
+          ]
+        },
+        "silence": null,
+        "realtime_factor": 0.007689789123196448
+      },
+      "resource_sample_refs": [
+        "resource-sample-000007",
+        "resource-sample-000008"
+      ],
+      "error": null
+    },
+    {
+      "sample_id": "zh-en-mixed-001",
+      "language": "zh-en",
+      "scenario": "general-speech",
+      "status": "succeeded",
+      "normalized_reference": "请举起你的左手 please respond",
+      "normalized_hypothesis": "请举起你的左手 please respond",
+      "metrics": {
+        "cer": null,
+        "wer": null,
+        "mixed_error": {
+          "reference_units": 9,
+          "hypothesis_units": 9,
+          "edit_distance": 0,
+          "substitutions": 0,
+          "deletions": 0,
+          "insertions": 0,
+          "rate": 0.0
+        },
+        "keyword": null,
+        "silence": null,
+        "realtime_factor": 0.0036640644996160736
+      },
+      "resource_sample_refs": [
+        "resource-sample-000009",
+        "resource-sample-000010"
+      ],
+      "error": null
+    },
+    {
+      "sample_id": "silence-001",
+      "language": "none",
+      "scenario": "silence",
+      "status": "succeeded",
+      "normalized_reference": null,
+      "normalized_hypothesis": "",
+      "metrics": {
+        "cer": null,
+        "wer": null,
+        "mixed_error": null,
+        "keyword": null,
+        "silence": {
+          "false_recognition": false,
+          "recognized_character_count": 0
+        },
+        "realtime_factor": 0.0028917500000000002
+      },
+      "resource_sample_refs": [
+        "resource-sample-000011",
+        "resource-sample-000012"
+      ],
+      "error": null
+    },
+    {
+      "sample_id": "noise-001",
+      "language": "none",
+      "scenario": "noise-only",
+      "status": "succeeded",
+      "normalized_reference": null,
+      "normalized_hypothesis": "",
+      "metrics": {
+        "cer": null,
+        "wer": null,
+        "mixed_error": null,
+        "keyword": null,
+        "silence": {
+          "false_recognition": false,
+          "recognized_character_count": 0
+        },
+        "realtime_factor": 0.0019925666666666666
+      },
+      "resource_sample_refs": [
+        "resource-sample-000013",
+        "resource-sample-000014"
+      ],
+      "error": null
+    }
+  ],
+  "failures": []
+}
